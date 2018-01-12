@@ -1,0 +1,357 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%		cv.tex
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%		My template for my CV
+%%%     
+%%%	    Forked, essentially, from
+%%%     Kieran Healy's remarkable
+%%%     guide: 
+%%%
+%%%     http://kjhealy.github.io/kjh-vita/
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,article,oneside]{memoir}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{DarkSlateBlue}{rgb}{0.28, 0.24, 0.55}
+\usepackage[xetex,colorlinks=true,urlcolor=DarkSlateBlue]{hyperref}
+\usepackage{url}
+%\usepackage{fancyhdr}
+\usepackage{fontawesome}
+\usepackage[letterpaper, left=1.75in, top=1.25in, right=1.25in, bottom=1.25in]{geometry}
+\usepackage[none]{hyphenat}
+\usepackage{polyglossia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%		Metadata
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% These all follow the pattern:
+%% \def\VARIABLENAME{contents}
+%% so I'll just put this for now:
+
+\def\myauthor{$contact.name.first$ $contact.name.last$}
+\def\mytitle{Vita}
+\def\mycopyright{\myauthor}
+\def\mykeywords{}
+\def\mybibliostyle{plain}
+\def\mybibliocommand{}
+\def\mysubtitle{}
+\def\myaffiliation{University of Maryland, College Park}
+\def\myaddress{English Department}
+\def\myemail{$contact.mail$}
+\def\myweb{$contact.url$}
+\def\myphone{$contact.phone$}
+%\def\myfax{(919) 660-5623}
+\def\mytwitter{$contact.twitter$}
+\def\myversion{}
+\def\myrevision{}
+
+\setdefaultlanguage{english}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%		Version tracking
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{vc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%		Headers and footers
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makepagestyle{jtm}
+\makeevenhead{jtm}{}{}{Moro \scshape\thepage}
+\makeoddhead{jtm}{}{}{Moro \scshape\thepage}
+
+\makepagestyle{jtmgit}
+\makeevenfoot{jtmgit}{}{\scshape\thepage}{\texttt{\footnotesize revision \VCRevision\ on \VCDateTEX}}
+\makeoddfoot{jtmgit}{}{\scshape\thepage}{\texttt{\footnotesize revision \VCRevision\ on \VCDateTEX}} 
+
+\makepagestyle{jtmcolophon}
+\makeevenhead{jtmcolophon}{}{}{Moro \scshape\thepage}
+\makeoddhead{jtmcolophon}{}{}{Moro \scshape\thepage}
+\makeevenfoot{jtmcolophon}{\footnotesize \textrm{For an interactive version of this vita, visit \href{https://jeffreymoro.com/cv}{https://jeffreymoro.com/cv}.}}{}{\footnotesize \texttt{typeset in} \LaTeX}
+\makeoddfoot{jtmcolophon}{\footnotesize \textrm{For an interactive version of this vita, visit \href{https://jeffreymoro.com/cv}{https://jeffreymoro.com/cv}.}}{}{\footnotesize \texttt{typeset in} \LaTeX} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%		And the document starts!
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\pagestyle{jtm}
+\thispagestyle{jtmgit}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%		Fonts
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setmainfont[Mapping=tex-text]{Minion Pro}
+\setsansfont[Mapping=tex-text]{Calibre}
+\setmonofont[Mapping=tex-text,Scale=0.8]{Input Mono Narrow}
+
+\newfontface\scheader[SmallCapsFont={Minion Pro},SmallCapsFeatures={Letters=SmallCaps},Scale=1.3,Ligatures=Rare]{Minion Pro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%		Local commands
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% This is where I'd define my own functions to use throughout. Don't really know what those would be yet! For now, here are a couple from Healy's CV template:
+
+%% Marginal header
+\newcommand{\marginhead}[1]{\marginpar{\textsf{{\small\vspace{-0.8em}\flushright #1}}}}
+
+%% No bullets on labels
+\renewcommand{\labelitemi}{~} 
+
+%% Custom hanging indent for vita items
+\def\ind{\hangindent=1 true cm\hangafter=1 \noindent}
+\def\labelitemi{~}
+\renewcommand{\labelitemii}{~}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%		Where the magic happens
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%		Contact		%%%
+\begin{minipage}[t]{2.75in}
+ \flushright {\footnotesize \textrm{
+ \href{http://english.umd.edu}{Department of English} \\ University of Maryland, College Park \\ \vspace{-0.05in} College Park, \textsc{MD} 20740}}  
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{2in}
+	\flushleft {\footnotesize \faSafari \, \textrm{\href{https://\myweb}{\myweb}}} \\ {\footnotesize \faEnvelope \, \textrm{\href{mailto:\myemail}{\myemail}}} \\ {\footnotesize \faTwitter \, \textrm{\href{http://twitter.com/jeffreymoro}{\mytwitter}}} \\ {\footnotesize \faGithub \, \textrm{\href{https://$contact.github$}{$contact.github$}}} \\ {\footnotesize \faKey \, \textrm{\href{https://$contact.keybase$}{$contact.keybase$}}}
+\end{minipage}
+
+\medskip
+
+%%%		Name		%%%
+\noindent{\Large\scheader \textsc{Jeffrey Moro}}
+\reversemarginpar
+
+\bigskip
+
+%%%		Profile		%%%
+%\medskip
+%\marginhead{\ttfamily {{\vskip -0.5em} profile}}
+%
+%\ind $VARprofile$
+%
+%\bigskip
+%%%%%%%%%%%%%%%%%%%%
+
+%%%		Education		%%%
+\medskip
+\marginhead{\rmfamily {{\vskip -0.6em} \textsc{education}}}
+
+$for(education)$
+\ind $education.degree$; $education.institution$; $education.date$
+
+$if(education.awards)$
+\ind \hspace{0.35in} \footnotesize $education.awards$ \normalsize \vspace{0.05in}
+$endif$
+
+\medskip
+$endfor$
+
+\medskip
+
+%%%		Employment		%%%
+\medskip
+\marginhead{\rmfamily {{\vskip -0.4em} \textsc{employment}}}
+
+$for(employment)$
+\ind $employment.title$. \emph{$employment.date$}. $if(employment.company-latex)$$employment.company-latex$$else$$employment.company$$endif$. $employment.location$.
+
+\smallskip
+$endfor$
+
+\medskip
+
+%%%		Talks		%%%
+\medskip
+\marginhead{\rmfamily {{\vskip -0.2em} \textsc{in public}}}
+
+\ind \textsc{Conference Presentations \& Panels}
+
+\medskip
+
+$for(conference-presentations)$
+\ind ``$conference-presentations.title$." \emph{$conference-presentations.date$}. $conference-presentations.institution$. $conference-presentations.location$. $conference-presentations.type$, \emph{$conference-presentations.event$}. \normalsize
+
+\smallskip
+
+\pagebreak[1]
+$endfor$
+\bigskip
+
+\ind \textsc{Other Talks}
+
+\medskip
+
+$for(other-talks)$
+\ind ``$other-talks.title$" \emph{$other-talks.date$}. $other-talks.institution$, $other-talks.location$. $other-talks.type$, \emph{$other-talks.event$}.
+
+\smallskip
+
+\pagebreak[1]
+$endfor$
+
+\medskip
+
+%%%		Awards		%%%
+\medskip
+\marginhead{\rmfamily {{\vskip -0.4em} \textsc{awards \newline\& grants}}}
+
+$for(awards)$
+\ind $awards.title$. \emph{$awards.date$}$if(awards.latex)$. $awards.latex$.$else${.}$endif$
+\smallskip
+
+\pagebreak[1]
+$endfor$
+
+\medskip
+
+%%%		Teaching		%%%
+\medskip
+\marginhead{\rmfamily {{\vskip -0.4em} \textsc{teaching}}}
+
+\ind \textsc{Courses Taught}
+
+\medskip
+
+$for(courses)$
+\ind $courses.title$. \emph{$courses.date$}. $courses.location$. $if(courses.url)$\href{$courses.url$}{$courses.url$}.$endif$
+
+\smallskip
+
+\pagebreak[1]
+$endfor$
+\bigskip
+
+\ind \textsc{Workshops Led}
+
+\medskip
+
+$for(workshop)$
+\ind $workshop.title$. \emph{$workshop.date$}. $workshop.location$. $if(workshop.url)$\href{$workshop.url$}{$workshop.url$}.$endif$
+
+\smallskip
+
+\pagebreak[1]
+$endfor$
+\bigskip
+
+\ind \textsc{Guest Lecturer \& TA}
+
+\medskip
+
+$for(guest)$
+\ind $guest.role$, $guest.title$. \emph{$guest.date$}. $guest.institution$.
+
+\smallskip
+
+\pagebreak[1]
+$endfor$
+
+\medskip
+
+%%%		Digital Projects		%%%
+\medskip
+\marginhead{\rmfamily {{\vskip -0.5em} \textsc{digital projects}}}
+
+\ind \textsc{Major Projects}
+
+\medskip
+
+$for(projects)$
+\ind \emph{$projects.title$}. \emph{$projects.date$}. $projects.role$. $if(projects.url)$\href{$projects.url$}{$projects.url$}.$endif$
+
+\smallskip
+$endfor$
+
+\bigskip 
+
+\ind \textsc{Minor Projects}
+
+\medskip
+
+$for(minor-projects)$
+\ind \emph{$minor-projects.title$}. \emph{$minor-projects.date$}. $minor-projects.role$. $if(minor-projects.url)$\href{$minor-projects.url$}{$minor-projects.url$}.$endif$
+\smallskip
+
+$endfor$
+
+%%%		Memberships and Service		%%%
+\marginhead{\rmfamily {{\vskip -0.2em} \textsc{membership \newline\& service}}}
+
+\ind \textsc{Memberships}
+
+\medskip
+
+$for(membership)$
+\ind $membership.title$.
+
+\pagebreak[1]
+$endfor$
+
+\bigskip
+
+\ind \textsc{Service}
+
+$for(service)$
+\ind $service.title$. \emph{$service.year$}. $service.institution$.
+
+\pagebreak[1]
+$endfor$
+
+\medskip
+
+%%%		Creative		%%%
+\medskip
+\marginhead{\rmfamily {{\vskip -0.4em} \textsc{creative}}}
+
+$for(creative)$
+\ind $if(creative.title-latex)$$creative.title-latex$$else$$creative.title$$endif$. \emph{$creative.date$}. $creative.role$. $if(creative.url)$\href{$creative.url$}{$creative.url$}.$endif$ $if(creative.location)$$creative.location$.$endif$
+
+\smallskip
+$endfor$
+
+\medskip
+
+%%%		Skills		%%%
+\medskip
+\marginhead{\rmfamily {{\vskip -0.3em} \textsc{skills}}}
+
+$for(skills)$
+\ind$if(skills.title)$\textbf{$skills.title$}$endif$ $skills.things$
+
+\smallskip
+
+\pagebreak[1]
+$endfor$
+
+\bigskip
+
+\thispagestyle{jtmcolophon}
+
+\end{document}

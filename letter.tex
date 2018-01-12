@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%   letter.tex
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%   My template for sending
+%%%   nice looking letters
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$]{letter}
+%\usepackage{fontspec}
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
+\usepackage{minionpro}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%   Metadata
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% These all follow the pattern:
+%% \def\VARIABLENAME{contents}
+%% so I'll just put this for now:
+
+\signature{Jeffrey Moro}
+\address{612 Kennebec Avenue, Apt 202 \\ Takoma Park, MD 20912}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%   And the document starts!
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{letter}{$to.name$ \\ $if(to.company)$ $to.company$ \\ $endif$ $to.street$
+\\ $to.city$ $to.postalcode$, $to.zipcode$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%   Fonts
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\setmainfont[Mapping=tex-text]{Crimson}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%   Where the magic happens
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\opening{$opening$}
+
+$body$
+
+\closing{$closing$}
+
+$if(ps)$
+\ps
+
+P.S. $ps$
+$endif$
+
+\end{letter}
+\end{document}

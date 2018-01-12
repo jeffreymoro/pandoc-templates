@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%   talk.tex
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%%   My template for PDFS off of
+%%%   which to read talks & post to
+%%%   my website.
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%	Class %%%
+\documentclass[11pt, article, oneside]{memoir}
+
+%%% Fonts %%%
+\usepackage{minionpro}
+%\usepackage{sourcecodepro}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+
+%%% Layout %%%
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[footnotes]{ragged2e}
+\usepackage[ragged]{footmisc}
+\setlength{\headheight}{13.6pt}
+\maxsecnumdepth{chapter}
+\setsecnumdepth{chapter}
+
+%%% Color %%%
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{DarkSlateBlue}{rgb}{0.28, 0.24, 0.55}
+\usepackage[colorlinks=true,urlcolor=DarkSlateBlue,hyperfootnotes=true,citecolor=DarkSlateBlue]{hyperref}
+\usepackage{url}
+\urlstyle{same}
+
+%%% Citations and bibliographies %%%
+\usepackage[american]{babel}
+\usepackage[babel]{csquotes}
+\usepackage[style=mla-new]{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+\def\bibindent{1.5em}
+\setlength\bibitemsep{0.5em}
+
+%%% Syntax highlighting %%%
+\usepackage{listings}
+\lstset{
+        basicstyle=\small\ttfamily}
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+\usepackage{fancyvrb}
+
+%%% Images %%%
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+%%% Commands %%%
+\interfootnotelinepenalty=10000
+%\setlength\bibitemsep{}
+
+%%% Version tracking %%%
+\input{vc}
+\fancypagestyle{git}{%
+  \fancyhf[R]{Moro \scshape\thepage}
+  \renewcommand\headrulewidth{0.4pt}
+  \fancyfoot[R]{\texttt{\footnotesize revision \VCRevision\ on \VCDateTEX}}
+}
+
+%%% Variables %%%
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\providecommand{\subtitle}[1]{}
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
+
+%%% Title and such styles %%%
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\thispagestyle{empty}
+\begin{flushleft}
+  \vspace*{0.75in}
+  \huge\textbf{\@title} \\
+  $if(subtitle)$
+  \smallskip
+  \Large\textbf{$subtitle$} \\
+  \vspace{0.25in}
+  $else$
+  \vspace{0.25in}
+  $endif$
+  \Large\@author \\
+  \smallskip
+  \Large\emph{$institute$}
+  \vspace{0.5in}
+\end{flushleft}\egroup
+}
+\makeatother
+
+%%%%%%%%%%%%%
+%%% BEGIN %%%
+%%%%%%%%%%%%%
+\begin{document}
+
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{Moro \scshape\thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+$if(title)$
+\maketitle
+$endif$
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+{
+$if(colorlinks)$
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
+$endif$
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+
+$body$
+
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+$endif$
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+\thispagestyle{git}
+\end{document}
