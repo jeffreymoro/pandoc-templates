@@ -49,7 +49,6 @@
 \def\myemail{$contact.mail$}
 \def\myweb{$contact.url$}
 \def\myphone{$contact.phone$}
-%\def\myfax{(919) 660-5623}
 \def\mytwitter{$contact.twitter$}
 \def\myversion{}
 \def\myrevision{}
@@ -75,8 +74,8 @@
 \makeoddhead{jtm}{}{}{Moro \scshape\thepage}
 
 \makepagestyle{jtmgit}
-\makeevenfoot{jtmgit}{}{\scshape\thepage}{\texttt{\footnotesize revision \VCRevision\ on \VCDateTEX}}
-\makeoddfoot{jtmgit}{}{\scshape\thepage}{\texttt{\footnotesize revision \VCRevision\ on \VCDateTEX}}
+\makeevenfoot{jtmgit}{}{}{\texttt{\footnotesize revision \VCRevision\ on \VCDateTEX}}
+\makeoddfoot{jtmgit}{}{}{\texttt{\footnotesize revision \VCRevision\ on \VCDateTEX}}
 
 \makepagestyle{jtmcolophon}
 \makeevenhead{jtmcolophon}{}{}{Moro \scshape\thepage}
@@ -150,17 +149,7 @@
 
 \bigskip
 
-%%%		Profile		%%%
-%\medskip
-%\marginhead{\ttfamily {{\vskip -0.5em} profile}}
-%
-%\ind $VARprofile$
-%
-%\bigskip
-%%%%%%%%%%%%%%%%%%%%
-
 %%%		Education		%%%
-\medskip
 \marginhead{\rmfamily {{\vskip -0.6em} \textsc{education}}}
 
 $for(education)$
@@ -170,13 +159,12 @@ $if(education.awards)$
 \ind \hspace{0.35in} \footnotesize $education.awards$ \normalsize \vspace{0.05in}
 $endif$
 
-\medskip
+\smallskip
 $endfor$
 
-\medskip
+\bigskip
 
 %%%		Employment		%%%
-\medskip
 \marginhead{\rmfamily {{\vskip -0.4em} \textsc{employment}}}
 
 $for(employment)$
@@ -185,161 +173,145 @@ $for(employment)$
 \smallskip
 $endfor$
 
-\medskip
+\bigskip
+\pagebreak[1]
+
+%%%		Publications		%%%
+%\marginhead{\rmfamily {{\vskip -0.4em} \textsc{writing}}}
+%
+%\ind \emph{Web}
+%
+%\smallskip
+%
+%$for(web)$
+%\marginhead{\rmfamily {{\vskip -0.3em} $web.year$}}
+%\ind $web.title$. \emph{$web.date$}. $web.venue$. \href{$web.url$}{$web.url$}.
+%
+%\smallskip
+%$endfor$
+%
+%\bigskip
+%\pagebreak[1]
 
 %%%		Talks		%%%
-\medskip
-\marginhead{\rmfamily {{\vskip -0.2em} \textsc{in public}}}
+\marginhead{\rmfamily {{\vskip -0.3em} \textsc{in public}}}
 
-\ind \textsc{Conference Presentations \& Panels}
+\ind \emph{Conference Presentations \& Panels}
 
-\medskip
+\smallskip
 
 $for(conference-presentations)$
-\ind ``$conference-presentations.title$." \emph{$conference-presentations.date$}. $conference-presentations.institution$. $conference-presentations.location$. $conference-presentations.type$, \emph{$conference-presentations.event$}. \normalsize
+\marginhead{\rmfamily {{\vskip -0.3em} $conference-presentations.year$}}
+\ind ``$conference-presentations.title$." $conference-presentations.date$. $conference-presentations.institution$. $conference-presentations.location$. $conference-presentations.type$, \emph{$conference-presentations.event$}. \normalsize
 
 \smallskip
-
-\pagebreak[1]
 $endfor$
+
 \bigskip
-
-\ind \textsc{Other Talks}
-
-\medskip
-
-$for(other-talks)$
-\ind ``$other-talks.title$" \emph{$other-talks.date$}. $other-talks.institution$, $other-talks.location$. $other-talks.type$, \emph{$other-talks.event$}.
-
-\smallskip
-
 \pagebreak[1]
-$endfor$
-
-\medskip
 
 %%%		Awards		%%%
-\medskip
 \marginhead{\rmfamily {{\vskip -0.5em} \textsc{awards \newline\& grants}}}
 
 $for(awards)$
-\ind $awards.title$. \emph{$awards.date$}$if(awards.latex)$. $awards.latex$.$else${.}$endif$
+\ind $awards.title$. $awards.date$$if(awards.latex)$. $awards.latex$.$else${.}$endif$
 \smallskip
 
-\pagebreak[1]
 $endfor$
 
-\medskip
+\bigskip
+\pagebreak[1]
 
 %%%		Teaching		%%%
-\medskip
 \marginhead{\rmfamily {{\vskip -0.5em} \textsc{teaching}}}
 
-\ind \textsc{Courses Taught}
+\ind \emph{Courses Taught}
 
-\medskip
+\smallskip
 
 $for(courses)$
-\ind $courses.title$. \emph{$courses.date$}. $courses.location$. $if(courses.url)$\href{$courses.url$}{$courses.url$}.$endif$
+\marginhead{\rmfamily {{\vskip -0.2em} $courses.date$}}
+\ind $courses.title$. $courses.location$. $if(courses.url)$\href{$courses.url$}{$courses.url$}.$endif$
 
 \smallskip
 
-\pagebreak[1]
 $endfor$
-\bigskip
-
-\ind \textsc{Workshops Led}
-
 \medskip
+
+\ind \emph{Workshops Led}
+
+\smallskip
 
 $for(workshop)$
-\ind $workshop.title$. \emph{$workshop.date$}. $workshop.location$. $if(workshop.url)$\href{$workshop.url$}{$workshop.url$}.$endif$
+\marginhead{\rmfamily {{\vskip -0.3em} $workshop.date$}}
+\ind $workshop.title$. $workshop.location$. $if(workshop.url)$\href{$workshop.url$}{$workshop.url$}.$endif$
 
 \smallskip
 
-\pagebreak[1]
 $endfor$
+
 \bigskip
-
-\ind \textsc{Guest Lecturer \& TA}
-
-\medskip
-
-$for(guest)$
-\ind $guest.role$, $guest.title$. \emph{$guest.date$}. $guest.institution$.
-
-\smallskip
-
 \pagebreak[1]
-$endfor$
-
-\medskip
 
 %%%		Digital Projects		%%%
-\medskip
-\marginhead{\rmfamily {{\vskip -0.5em} \textsc{digital projects}}}
+\marginhead{\rmfamily {{\vskip -0.4em} \textsc{digital}}}
 
-\ind \textsc{Major Projects}
-
-\medskip
-
-$for(projects)$
-\ind \emph{$projects.title$}. \emph{$projects.date$}. $projects.role$. $if(projects.url)$\href{$projects.url$}{$projects.url$}.$endif$
+\ind \emph{Major Projects}
 
 \smallskip
+
+$for(projects)$
+\marginhead{\rmfamily {{\vskip -0.4em} $projects.date$}}
+\ind \emph{$projects.title$}. $projects.role$. $if(projects.url)$\href{$projects.url$}{$projects.url$}.$endif$
+
+\smallskip
+$endfor$
+
+\medskip
+
+\ind \emph{Minor Projects}
+
+\smallskip
+
+$for(minor-projects)$
+\marginhead{\rmfamily {{\vskip -0.4em} $minor-projects.date$}}
+\ind \emph{$minor-projects.title$}. $minor-projects.role$. $if(minor-projects.url)$\href{$minor-projects.url$}{$minor-projects.url$}.$endif$
+\smallskip
+
 $endfor$
 
 \bigskip
-
-\ind \textsc{Minor Projects}
-
-\medskip
-
-$for(minor-projects)$
-\ind \emph{$minor-projects.title$}. \emph{$minor-projects.date$}. $minor-projects.role$. $if(minor-projects.url)$\href{$minor-projects.url$}{$minor-projects.url$}.$endif$
-\smallskip
-
-$endfor$
+\pagebreak[1]
 
 %%%		Memberships and Service		%%%
-\marginhead{\rmfamily {{\vskip -0.2em} \textsc{membership \newline\& service}}}
+\marginhead{\rmfamily {{\vskip -0.5em} \textsc{membership \newline\& service}}}
 
-\ind \textsc{Memberships}
+\ind \emph{Memberships}
 
-\medskip
+\smallskip
 
 $for(membership)$
 \ind $membership.title$.
 
-\pagebreak[1]
 $endfor$
 
-\bigskip
+\medskip
 
-\ind \textsc{Service}
+\ind \emph{Service}
+
+\smallskip
 
 $for(service)$
-\ind $service.title$. \emph{$service.year$}. $service.institution$.
+\ind $service.title$. $service.year$. $service.institution$.
 
 \pagebreak[1]
 $endfor$
 
-\medskip
-
-%%%		Creative		%%%
-%%%\medskip
-%%%\marginhead{\rmfamily {{\vskip -0.4em} \textsc{creative}}}
-%%%
-%%%$for(creative)$
-%%%\ind $if(creative.title-latex)$$creative.title-latex$$else$$creative.title$$endif$. \emph{$creative.date$}. $creative.role$. $if(creative.url)$\href{$creative.url$}{$creative.url$}.$endif$ $if(creative.location)$$creative.location$.$endif$
-%%%
-%%%\smallskip
-%%%$endfor$
-%%%
-%%%\medskip
+\smallskip
+\bigskip
+\pagebreak[1]
 
 %%%		Skills		%%%
-\medskip
 \marginhead{\rmfamily {{\vskip -0.5em} \textsc{skills}}}
 
 $for(skills)$
