@@ -168,7 +168,7 @@ $endfor$
 \marginhead{\rmfamily {{\vskip -0.4em} \textsc{employment}}}
 
 $for(employment)$
-\ind $employment.title$. \emph{$employment.date$}. $if(employment.company-latex)$$employment.company-latex$$else$$employment.company$$endif$. $employment.location$.
+\ind $employment.title$. $employment.date$. $if(employment.company-latex)$$employment.company-latex$$else$$employment.company$$endif$.
 
 \smallskip
 $endfor$
@@ -177,32 +177,53 @@ $endfor$
 \pagebreak[1]
 
 %%%		Publications		%%%
-%\marginhead{\rmfamily {{\vskip -0.4em} \textsc{writing}}}
-%
-%\ind \emph{Web}
-%
-%\smallskip
-%
-%$for(web)$
-%\marginhead{\rmfamily {{\vskip -0.3em} $web.year$}}
-%\ind $web.title$. \emph{$web.date$}. $web.venue$. \href{$web.url$}{$web.url$}.
-%
-%\smallskip
-%$endfor$
-%
-%\bigskip
-%\pagebreak[1]
+\marginhead{\rmfamily {{\vskip -1.8em} \textsc{publications}}}
 
-%%%		Talks		%%%
-\marginhead{\rmfamily {{\vskip -0.3em} \textsc{in public}}}
-
-\ind \emph{Conference Presentations \& Panels}
+\ind \emph{Peer-Reviewed Journals}
 
 \smallskip
 
-$for(conference-presentations)$
-\marginhead{\rmfamily {{\vskip -0.3em} $conference-presentations.year$}}
-\ind ``$conference-presentations.title$." $conference-presentations.date$. $conference-presentations.institution$. $conference-presentations.location$. $conference-presentations.type$, \emph{$conference-presentations.event$}. \normalsize
+$for(journals)$
+\ind ``$journals.title$." $journals.date$. \emph{$journals.journal$}, $journals.number$. $if(journal.url)$\href{$journal.url$}{$journal.url$}.$else${}$endif$
+
+\smallskip
+$endfor$
+\medskip
+
+\ind \emph{Web}
+
+\smallskip
+
+$for(web)$
+\ind ``$web.title$." $web.date$. \emph{$web.venue$}. $if(web.url)$\href{$web.url$}{$web.url$}.$else${}$endif$
+
+\smallskip
+$endfor$
+
+\bigskip
+\pagebreak[1]
+
+%%%		Talks		%%%
+\marginhead{\rmfamily {{\vskip -0.4em} \textsc{in public}}}
+
+\ind \emph{Conference Talks}
+
+\smallskip
+
+$for(conference-talks)$
+\ind ``$conference-talks.title$." $conference-talks.institution$. $conference-talks.location$. \emph{$conference-talks.event$}. $conference-talks.date$. \normalsize
+
+\smallskip
+$endfor$
+\medskip
+
+\pagebreak[1]
+\ind \emph{Roundtables \& Posters}
+
+\smallskip
+
+$for(conference-other)$
+\ind ``$conference-other.title$." $conference-other.institution$. $conference-other.location$. $conference-other.type$, \emph{$conference-other.event$}. $conference-other.date$. \normalsize
 
 \smallskip
 $endfor$
@@ -211,7 +232,7 @@ $endfor$
 \pagebreak[1]
 
 %%%		Awards		%%%
-\marginhead{\rmfamily {{\vskip -0.5em} \textsc{awards \newline\& grants}}}
+\marginhead{\rmfamily {{\vskip -0.3em} \textsc{awards \newline\& grants}}}
 
 $for(awards)$
 \ind $awards.title$. $awards.date$$if(awards.latex)$. $awards.latex$.$else${.}$endif$
@@ -225,26 +246,33 @@ $endfor$
 %%%		Teaching		%%%
 \marginhead{\rmfamily {{\vskip -0.5em} \textsc{teaching}}}
 
-\ind \emph{Courses Taught}
+\ind \emph{University of Maryland}
 
 \smallskip
 
-$for(courses)$
-\marginhead{\rmfamily {{\vskip -0.2em} $courses.date$}}
-\ind $courses.title$. $courses.location$. $if(courses.url)$\href{$courses.url$}{$courses.url$}.$endif$
-
-\smallskip
+$for(courses-umd)$
+\ind $courses-umd.title$. $if(courses-umd.url)$\href{$courses-smith.url$}{$courses-umd.url$}.$endif$ $courses-umd.date$.
 
 $endfor$
+\smallskip
 \medskip
 
-\ind \emph{Workshops Led}
+\ind \emph{Smith College}
 
 \smallskip
 
+$for(courses-smith)$
+\ind $courses-smith.title$. $if(courses-smith.url)$\href{$courses-smith.url$}{$courses-smith.url$}.$endif$ $courses-smith.date$.
+
+$endfor$
+\bigskip
+\pagebreak[1]
+
+%%%		Workshops		%%%
+\marginhead{\rmfamily {{\vskip -0.5em} \textsc{workshops led}}}
+
 $for(workshop)$
-\marginhead{\rmfamily {{\vskip -0.3em} $workshop.date$}}
-\ind $workshop.title$. $workshop.location$. $if(workshop.url)$\href{$workshop.url$}{$workshop.url$}.$endif$
+\ind $workshop.title$. $workshop.location$. $if(workshop.url)$\href{$workshop.url$}{$workshop.url$}.$endif$ $workshop.date$.
 
 \smallskip
 
@@ -261,8 +289,7 @@ $endfor$
 \smallskip
 
 $for(projects)$
-\marginhead{\rmfamily {{\vskip -0.4em} $projects.date$}}
-\ind \emph{$projects.title$}. $projects.role$. $if(projects.url)$\href{$projects.url$}{$projects.url$}.$endif$
+\ind \emph{$projects.title$}. $projects.role$. $if(projects.url)$\href{$projects.url$}{$projects.url$}.$endif$ $projects.date$.
 
 \smallskip
 $endfor$
@@ -274,8 +301,7 @@ $endfor$
 \smallskip
 
 $for(minor-projects)$
-\marginhead{\rmfamily {{\vskip -0.4em} $minor-projects.date$}}
-\ind \emph{$minor-projects.title$}. $minor-projects.role$. $if(minor-projects.url)$\href{$minor-projects.url$}{$minor-projects.url$}.$endif$
+\ind \emph{$minor-projects.title$}. $minor-projects.role$. $if(minor-projects.url)$\href{$minor-projects.url$}{$minor-projects.url$}.$endif$ $minor-projects.date$.
 \smallskip
 
 $endfor$
@@ -284,38 +310,37 @@ $endfor$
 \pagebreak[1]
 
 %%%		Memberships and Service		%%%
-\marginhead{\rmfamily {{\vskip -0.5em} \textsc{membership \newline\& service}}}
+\marginhead{\rmfamily {{\vskip -0.5em} \textsc{service}}}
 
-\ind \emph{Memberships}
-
-\smallskip
-
-$for(membership)$
-\ind $membership.title$.
-
-$endfor$
-
-\medskip
-
-\ind \emph{Service}
-
-\smallskip
+%\ind \emph{Memberships}
+%
+%\smallskip
+%
+%$for(membership)$
+%\ind $membership.title$.
+%
+%$endfor$
+%
+%\medskip
+%
+%\ind \emph{Service}
+%
+%\smallskip
 
 $for(service)$
-\ind $service.title$. $service.year$. $service.institution$.
+\ind $service.title$. $service.institution$, $service.year$.
 
 \pagebreak[1]
 $endfor$
 
 \smallskip
 \bigskip
-\pagebreak[1]
 
 %%%		Skills		%%%
 \marginhead{\rmfamily {{\vskip -0.5em} \textsc{skills}}}
 
 $for(skills)$
-\ind$if(skills.title)$\textbf{$skills.title$}$endif$ $skills.things$
+\ind$if(skills.title)$\textbf{$skills.title$:}$endif$ $skills.things$
 
 \smallskip
 

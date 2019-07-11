@@ -14,9 +14,10 @@
 \documentclass[11pt, article, oneside]{memoir}
 
 %%% Fonts %%%
-\usepackage{minionpro}
+%\usepackage{minionpro}
 %\usepackage{sourcecodepro}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{Minion Pro}
 \usepackage[utf8]{inputenc}
 \usepackage{microtype}
 
@@ -26,8 +27,8 @@
 \usepackage{titlesec}
 \usepackage[footnotes]{ragged2e}
 \usepackage[ragged]{footmisc}
-\setlength{\headheight}{13.6pt} 
-\maxsecnumdepth{chapter} 
+\setlength{\headheight}{13.6pt}
+\maxsecnumdepth{chapter}
 \setsecnumdepth{chapter}
 
 %%% Color %%%
