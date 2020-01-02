@@ -184,7 +184,7 @@ $endfor$
 \smallskip
 
 $for(journals)$
-\ind ``$journals.title$." $journals.date$. \emph{$journals.journal$}, $journals.number$. $if(journal.url)$\href{$journal.url$}{$journal.url$}.$else${}$endif$
+\ind \href{$journals.url$}{``$journals.title$."} $journals.date$. \emph{$journals.journal$}, $journals.number$.
 
 \smallskip
 $endfor$
@@ -195,7 +195,7 @@ $endfor$
 \smallskip
 
 $for(web)$
-\ind ``$web.title$." $web.date$. \emph{$web.venue$}. $if(web.url)$\href{$web.url$}{$web.url$}.$else${}$endif$
+\ind \href{$web.url$}{``$web.title$."} $web.date$. \emph{$web.venue$}. 
 
 \smallskip
 $endfor$
@@ -251,7 +251,7 @@ $endfor$
 \smallskip
 
 $for(courses-umd)$
-\ind $courses-umd.title$. $if(courses-umd.url)$\href{$courses-smith.url$}{$courses-umd.url$}.$endif$ $courses-umd.date$.
+\ind $courses-umd.title$. $if(courses-umd.url)$\href{$courses-umd.url$}{$courses-umd.url$}.$endif$ $courses-umd.date$.
 
 $endfor$
 \smallskip
@@ -262,17 +262,17 @@ $endfor$
 \smallskip
 
 $for(courses-smith)$
-\ind $courses-smith.title$. $if(courses-smith.url)$\href{$courses-smith.url$}{$courses-smith.url$}.$endif$ $courses-smith.date$.
+\ind \href{$courses-smith.url$}{$courses-smith.title$}. $courses-smith.date$.
 
 $endfor$
 \bigskip
 \pagebreak[1]
 
 %%%		Workshops		%%%
-\marginhead{\rmfamily {{\vskip -0.5em} \textsc{workshops led}}}
+\marginhead{\rmfamily {{\vskip -0.3em} \textsc{workshops led}}}
 
 $for(workshop)$
-\ind $workshop.title$. $workshop.location$. $if(workshop.url)$\href{$workshop.url$}{$workshop.url$}.$endif$ $workshop.date$.
+\ind \href{$workshop.url$}{$workshop.title$.} $workshop.location$. $workshop.date$.
 
 \smallskip
 
