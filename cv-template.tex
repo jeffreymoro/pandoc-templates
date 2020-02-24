@@ -234,10 +234,28 @@ $endfor$
 %%%		Awards		%%%
 \marginhead{\rmfamily {{\vskip -0.3em} \textsc{awards \newline\& grants}}}
 
-$for(awards)$
-\ind $awards.title$. $awards.date$$if(awards.latex)$. $awards.latex$.$else${.}$endif$
+\ind \emph{Fellowships}
+
 \smallskip
 
+$for(fellowships)$
+\ind $fellowships.title$. $fellowships.date$$if(fellowships.latex)$. $fellowships.latex$.$else${.}
+
+\smallskip
+$endif$
+
+$endfor$
+
+\bigskip
+
+\ind \emph{Awards}
+
+\smallskip
+
+$for(awards)$
+\ind $awards.title$. $awards.date$$if(awards.latex)$. $awards.latex$.$else${.}$endif$
+
+\smallskip
 $endfor$
 
 \bigskip
@@ -251,20 +269,23 @@ $endfor$
 \smallskip
 
 $for(courses-umd)$
-\ind $courses-umd.title$. $if(courses-umd.url)$\href{$courses-umd.url$}{$courses-umd.url$}.$endif$ $courses-umd.date$.
+\ind $courses-umd.title$. $courses-umd.date$.
 
-$endfor$
 \smallskip
-\medskip
+$endfor$
+
+\bigskip
 
 \ind \emph{Smith College}
 
 \smallskip
 
 $for(courses-smith)$
-\ind \href{$courses-smith.url$}{$courses-smith.title$}. $courses-smith.date$.
+\ind $courses-smith.title$. $courses-smith.date$.
 
+\smallskip
 $endfor$
+
 \bigskip
 \pagebreak[1]
 
@@ -275,7 +296,6 @@ $for(workshop)$
 \ind \href{$workshop.url$}{$workshop.title$.} $workshop.location$. $workshop.date$.
 
 \smallskip
-
 $endfor$
 
 \bigskip
@@ -294,7 +314,7 @@ $for(projects)$
 \smallskip
 $endfor$
 
-\medskip
+\bigskip
 
 \ind \emph{Minor Projects}
 
@@ -302,8 +322,8 @@ $endfor$
 
 $for(minor-projects)$
 \ind \emph{$minor-projects.title$}. $minor-projects.role$. $if(minor-projects.url)$\href{$minor-projects.url$}{$minor-projects.url$}.$endif$ $minor-projects.date$.
-\smallskip
 
+\smallskip
 $endfor$
 
 \bigskip
@@ -330,10 +350,10 @@ $endfor$
 $for(service)$
 \ind $service.title$. $service.institution$, $service.year$.
 
+\smallskip
 \pagebreak[1]
 $endfor$
 
-\smallskip
 \bigskip
 
 %%%		Skills		%%%
@@ -343,7 +363,6 @@ $for(skills)$
 \ind$if(skills.title)$\textbf{$skills.title$:}$endif$ $skills.things$
 
 \smallskip
-
 \pagebreak[1]
 $endfor$
 
