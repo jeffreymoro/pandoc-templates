@@ -330,29 +330,45 @@ $endfor$
 \pagebreak[1]
 
 %%%		Memberships and Service		%%%
-\marginhead{\rmfamily {{\vskip -0.5em} \textsc{service}}}
+\marginhead{\rmfamily {{\vskip -0.5em} \textsc{memberships \& service}}}
 
-%\ind \emph{Memberships}
-%
-%\smallskip
-%
-%$for(membership)$
-%\ind $membership.title$.
-%
-%$endfor$
-%
-%\medskip
-%
-%\ind \emph{Service}
-%
-%\smallskip
+\ind \emph{Memberships}
+
+\smallskip
+
+$for(membership)$
+\ind $membership.title$. $membership.institution$.
+
+\smallskip
+
+$endfor$
+
+\medskip
+
+\ind \emph{Service}
+
+\smallskip
 
 $for(service)$
 \ind $service.title$. $service.institution$, $service.year$.
 
 \smallskip
+
+$endfor$
+
+\medskip
+
+\ind \emph{Scholarly Organizations}
+
+\smallskip
+
+$for(orgs)$
+\ind $orgs.title$
+
 \pagebreak[1]
 $endfor$
+
+\medskip
 
 \bigskip
 
