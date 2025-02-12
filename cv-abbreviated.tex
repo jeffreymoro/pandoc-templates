@@ -80,8 +80,8 @@
 \makepagestyle{jtmcolophon}
 \makeevenhead{jtmcolophon}{}{}{Moro \scshape\thepage}
 \makeoddhead{jtmcolophon}{}{}{Moro \scshape\thepage}
-\makeevenfoot{jtmcolophon}{\footnotesize \textrm{For an interactive version of this vita, visit \href{https://jeffreymoro.com/cv}{https://jeffreymoro.com/cv}.}}{}{\footnotesize \texttt{typeset in} \LaTeX}
-\makeoddfoot{jtmcolophon}{\footnotesize \textrm{For an interactive version of this vita, visit \href{https://jeffreymoro.com/cv}{https://jeffreymoro.com/cv}.}}{}{\footnotesize \texttt{typeset in} \LaTeX}
+\makeevenfoot{jtmcolophon}{\footnotesize \textrm{For an online version of this vita, visit \href{https://jeffreymoro.com/cv}{https://jeffreymoro.com/cv}.}}{}{\footnotesize \texttt{typeset in} \LaTeX}
+\makeoddfoot{jtmcolophon}{\footnotesize \textrm{For an online version of this vita, visit \href{https://jeffreymoro.com/cv}{https://jeffreymoro.com/cv}.}}{}{\footnotesize \texttt{typeset in} \LaTeX}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -138,7 +138,7 @@
 \end{minipage}
 \hfill
 \begin{minipage}[t]{2in}
-	\flushleft {\footnotesize \faSafari \, \textrm{\href{https://\myweb}{\myweb}}} \\ {\footnotesize \faEnvelope \, \textrm{\href{mailto:\myemail}{\myemail}}} \\ {\footnotesize \faTwitter \, \textrm{\href{http://twitter.com/jeffreymoro}{\mytwitter}}} \\ {\footnotesize \faGithub \, \textrm{\href{https://$contact.github$}{$contact.github$}}} \\ {\footnotesize \faKey \, \textrm{\href{https://$contact.keybase$}{$contact.keybase$}}}
+	\flushleft {\footnotesize \faSafari \, \textrm{\href{https://\myweb}{\myweb}}} \\ {\footnotesize \faEnvelope \, \textrm{\href{mailto:\myemail}{\myemail}}} \\ {\footnotesize \faTwitter \, \textrm{\href{http://twitter.com/jeffreymoro}{\mytwitter}}} \\ {\footnotesize \faGithub \, \textrm{\href{https://$contact.github$}{$contact.github$}}}
 \end{minipage}
 
 \medskip
@@ -153,7 +153,7 @@
 \marginhead{\rmfamily {{\vskip -0.6em} \textsc{education}}}
 
 $for(education)$
-\ind $education.degree$; $education.institution$; $education.date$
+\ind $education.degree$. $education.institution$. $education.date$
 
 $if(education.awards)$
 \ind \hspace{0.35in} \footnotesize $education.awards$ \normalsize \vspace{0.05in}
@@ -179,12 +179,23 @@ $endfor$
 %%%		Publications		%%%
 \marginhead{\rmfamily {{\vskip -1.8em} \textsc{publications}}}
 
-\ind \emph{Peer-Reviewed Journals}
+\ind \emph{Peer-Reviewed Articles}
 
 \smallskip
 
 $for(journals)$
 \ind \href{$journals.url$}{``$journals.title$."} $journals.date$. \emph{$journals.journal$}, $journals.number$.
+
+\smallskip
+$endfor$
+\medskip
+
+\ind \emph{Short Articles \& Reviews}
+
+\smallskip
+
+$for(reviews)$
+\ind \href{$reviews.url$}{``$reviews.title$."} $reviews.date$. \emph{$reviews.journal$}, $reviews.number$.
 
 \smallskip
 $endfor$
@@ -210,76 +221,43 @@ $endfor$
 
 \smallskip
 
-$for(conference-talks)$
-\ind ``$conference-talks.title$." $conference-talks.institution$. $conference-talks.location$. \emph{$conference-talks.event$}. $conference-talks.date$. \normalsize
+$for(conferenceTalks)$
+\ind ``$conferenceTalks.title$." $conferenceTalks.institution$. $conferenceTalks.location$. \emph{$conferenceTalks.event$}. $conferenceTalks.date$. \normalsize
 
 \smallskip
 $endfor$
 \medskip
 
-\pagebreak[1]
-\ind \emph{Selected Roundtables \& Posters}
-
-\smallskip
-
-$for(conference-other)$
-\ind ``$conference-other.title$." $conference-other.institution$. $conference-other.location$. $conference-other.type$, \emph{$conference-other.event$}. $conference-other.date$. \normalsize
-
-\smallskip
-$endfor$
-
-\bigskip
 \pagebreak[1]
 
 %%%		Awards		%%%
-\marginhead{\rmfamily {{\vskip -0.3em} \textsc{selected \newline\ awards \newline\& grants}}}
+\marginhead{\rmfamily {{\vskip -0.3em} \textsc{fellowships \newline\& awards}}}
 
-$for(awards)$
-\ind $awards.title$. $awards.date$$if(awards.latex)$. $awards.latex$.$else${.}$endif$
+\ind \emph{Fellowships}
+
 \smallskip
+
+$for(fellowships)$
+\ind $fellowships.title$. $fellowships.date$$if(fellowships.latex)$. $fellowships.latex$.$else${.}
+
+\smallskip
+$endif$
 
 $endfor$
 
 \bigskip
-\pagebreak[1]
 
-%%%		Teaching		%%%
-\marginhead{\rmfamily {{\vskip -0.5em} \textsc{teaching}}}
-
-\ind \emph{University of Maryland}
+\ind \emph{Awards}
 
 \smallskip
 
-$for(courses-umd)$
-\ind $courses-umd.title$. $if(courses-umd.url)$\href{$courses-umd.url$}{$courses-umd.url$}.$endif$ $courses-umd.date$.
+$for(awards)$
+\ind $awards.title$. $awards.date$$if(awards.latex)$. $awards.latex$.$else${.}$endif$
 
+\smallskip
 $endfor$
-\smallskip
-\medskip
 
-%\ind \emph{Smith College}
-%
-%\smallskip
-%
-%$for(courses-smith)$
-%\ind \href{$courses-smith.url$}{$courses-smith.title$}. $courses-smith.date$.
-%
-%$endfor$
-%\bigskip
-%\pagebreak[1]
-
-%%%		Workshops		%%%
-%\marginhead{\rmfamily {{\vskip -0.3em} \textsc{workshops led}}}
-%
-%$for(workshop)$
-%\ind \href{$workshop.url$}{$workshop.title$.} $workshop.location$. $workshop.date$.
-%
-%\smallskip
-%
-%$endfor$
-%
-%\bigskip
-%\pagebreak[1]
+\bigskip
 
 %%%		Digital Projects		%%%
 \marginhead{\rmfamily {{\vskip -0.4em} \textsc{digital}}}
@@ -294,60 +272,20 @@ $for(projects)$
 \smallskip
 $endfor$
 
-\medskip
+\bigskip
 
 \ind \emph{Minor Projects}
 
 \smallskip
 
-$for(minor-projects)$
-\ind \emph{$minor-projects.title$}. $minor-projects.role$. $if(minor-projects.url)$\href{$minor-projects.url$}{$minor-projects.url$}.$endif$ $minor-projects.date$.
-\smallskip
+$for(minorProjects)$
+\ind \emph{$minorProjects.title$}. $minorProjects.role$. $if(minorProjects.url)$\href{$minorProjects.url$}{$minorProjects.url$}.$endif$ $minorProjects.date$.
 
+\smallskip
 $endfor$
 
 \bigskip
 \pagebreak[1]
-
-%%%		Memberships and Service		%%%
-\marginhead{\rmfamily {{\vskip -0.5em} \textsc{service}}}
-
-%\ind \emph{Memberships}
-%
-%\smallskip
-%
-%$for(membership)$
-%\ind $membership.title$.
-%
-%$endfor$
-%
-%\medskip
-%
-%\ind \emph{Service}
-%
-%\smallskip
-
-$for(service)$
-\ind $service.title$. $service.institution$, $service.year$.
-
-\pagebreak[1]
-$endfor$
-
-\smallskip
-\bigskip
-
-%%%		Skills		%%%
-%\marginhead{\rmfamily {{\vskip -0.5em} \textsc{skills}}}
-%
-%$for(skills)$
-%\ind$if(skills.title)$\textbf{$skills.title$:}$endif$ $skills.things$
-%
-%\smallskip
-%
-%\pagebreak[1]
-%$endfor$
-%
-%\bigskip
 
 \thispagestyle{jtmcolophon}
 
